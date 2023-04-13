@@ -1,0 +1,631 @@
+$font-poppins: 'Poppins', sans-serif;
+$font-lineheight-small: 1;
+$font-lineheight-standard: 1.5;
+
+$font-size-standard: 16px;
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+$breakpoint-xxxl: 1920px;
+
+$minmaxwidth-md: 720px;
+$minmaxwidth-lg: 960px;
+$minmaxwidth-xl: 1140px;
+$minmaxwidth-xxl: 1320px;
+$minmaxwidth-xxxl: 1680px;
+
+$color-theme: #ff7373;
+$color-red: #ff0000;
+
+$color-dark-1: #000000;
+$color-dark-2: #222529;
+$color-dark-3: #616365;
+
+$color-light-1: #ffffff;
+$color-light-2: #f5f5f5;
+$color-light-3: #f3f3f3;
+
+$color-shadow-1: rgba(0,0,0, 0.10);
+$color-shadow-2: rgba(112,112,112, 0.4);
+
+$color-transparent-light-1: rgba(255, 255,255, 0.98);
+
+@mixin md {
+    @media (min-width: $breakpoint-md) {
+        @content
+    }
+}
+
+@mixin lg {
+    @media (min-width: $breakpoint-lg) {
+        @content
+    }
+}
+
+@mixin xl {
+    @media (min-width: $breakpoint-xl) {
+        @content
+    }
+}
+
+@mixin xxl {
+    @media (min-width: $breakpoint-xxl) {
+        @content
+    }
+}
+
+@mixin xxxl {
+    @media (min-width: $breakpoint-xxxl) {
+        @content
+    }
+}
+
+@mixin center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin font-default {
+    font-size: 1em;
+    font-weight: $font-weight-regular;
+    font-family: $font-poppins;
+    line-height: $font-lineheight-standard;
+}
+
+@mixin font-title-1 {
+    font-size: 2.5em;
+    font-weight: $font-weight-black;
+    font-family: $font-poppins;
+    line-height: $font-lineheight-standard;
+    margin-bottom: 0.6em;
+
+    @include lg {
+        font-size: 3em;
+    }
+
+    @include xl {
+        font-size: 4.063em;
+    }
+}
+
+@mixin font-title-2 {
+    font-size: 1.5em;
+    font-weight: $font-weight-bold;
+    font-family: $font-poppins;
+    line-height: $font-lineheight-small;
+    margin-bottom: 0.6em;
+
+    @include lg {
+        font-size: 1.9em;
+    }
+
+    @include xl {
+        font-size: 2.188em;
+    }
+}
+
+@mixin font-title-3 {
+    font-size: 1em;
+    font-weight: $font-weight-medium;
+    font-family: $font-poppins;
+    line-height: $font-lineheight-standard;
+    margin-bottom: 1.5em;
+
+    @include lg {
+        font-size: 1.1em;
+    }
+
+    @include xl {
+        font-size: 1.250em;
+    }
+}
+
+@mixin color-default {
+    background-color: $color-light-1;
+    color: $color-dark-2;
+}
+
+@mixin color-theme-default {
+    background-color: $color-theme;
+    color: $color-light-2;
+}
+
+@mixin color-dark-default {
+    background-color: $color-dark-2;
+    color: $color-light-2;
+}
+
+@mixin color-default-with-border {
+    @include color-default;
+    border: 1px solid $color-dark-2;
+}
+
+@mixin color-theme-default-with-border {
+    @include color-theme-default;
+    border: 1px solid $color-light-2;
+}
+
+@mixin color-dark-default-with-border {
+    @include color-dark-default;
+    border: 1px solid $color-dark-2;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap');
+
+html, body {
+    @include font-default;
+    @include color-default;
+}
+
+.hide {
+    display: none;
+}
+
+.links {
+    @include lg {
+        @include center-content;
+    }
+
+    .link {
+        color: $color-dark-2;
+        font-weight: $font-weight-medium;
+        text-decoration: none;
+        margin: 10px 12px;
+        display: block;
+
+        &:hover,
+        &.active {
+            color: $color-theme;
+            text-decoration: none;
+        }
+    }
+}
+
+.icons {
+
+
+    .link {
+        position: relative;
+        height: 36px;
+        width: 36px;
+        @include center-content;
+        box-shadow: 0 0 5px 2px $color-shadow-1;
+        border-radius: 50%;
+        margin: 5px;
+        text-decoration: none;
+        @include color-default;
+        transition: background-color 0.25s, color 0.20s;
+
+        &:hover,
+        &.active {
+            @include color-dark-default;
+            text-decoration: none;
+        }
+    }
+}
+
+.star-rating {
+    color: $color-theme;
+    font-size: 1.375em;
+}
+
+button {
+    border: none;
+}
+
+.btn-theme {
+    position: relative;
+    @include color-theme-default;
+    padding: 20px 80px;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: inline-block;
+    transition: background-color 0.25s;
+    text-align: center;
+
+    &::before {
+        content: '';
+        border-top: 2px solid $color-light-2;
+        border-left: 2px solid $color-light-2;
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        top: 12px;
+        left: 12px;
+    }
+
+    &::after {
+        content: '';
+        border-bottom: 2px solid $color-light-2;
+        border-right: 2px solid $color-light-2;
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+    }
+
+    &:hover {
+        @include color-dark-default;
+        text-decoration: none;
+    }
+}
+
+
+.btn-white {
+    position: relative;
+    color: $color-dark-2;
+    background-color: $color-light-1;
+    border: 1px solid $color-shadow-1;
+    padding: 20px 80px;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: inline-block;
+    transition: background-color 0.25s, color 0.15s;
+    text-align: center;
+
+    &::before {
+        content: '';
+        border-top: 2px solid $color-dark-2;
+        border-left: 2px solid $color-dark-2;
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        top: 12px;
+        left: 12px;
+    }
+
+    &::after {
+        content: '';
+        border-bottom: 2px solid $color-dark-2;
+        border-right: 2px solid $color-dark-2;
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+    }
+
+    &:hover {
+        @include color-dark-default;
+        text-decoration: none;
+    }
+}
+.offer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "offer";
+    gap: 1rem;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    max-width: 1920px;
+    align-items: stretch;
+
+
+    @include lg {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "offer office" "offer party";
+    }
+
+    @include xl {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: "office offer party";
+    }
+
+    img {
+        height: auto;
+        width: 100%;
+    }
+
+    #office-style {
+        grid-area: office;
+        display: none;
+
+        @include lg {
+            display: block;
+        }
+    }
+
+    #party-style {
+        grid-area: party;
+        display: none;
+
+        @include lg {
+            display: block;
+        }
+    }
+
+    .offer {
+        grid-area: offer;
+        background-color: $color-light-2;
+        padding: 20px;
+
+        .red-border {
+            border: 6px solid $color-theme;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .content {
+            text-align: center;
+            height: auto;
+
+            h1 {
+                font-family: $font-poppins;
+                font-weight: $font-weight-medium;
+            }
+
+            button {
+                margin-top: 20px;
+            }
+        }
+    }
+}
+.showcase {
+    background-color: $color-light-3;
+    background: linear-gradient(90deg, $color-light-3 0%, $color-light-2 100%);
+
+    .container {
+        @include center-content;
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+        @include xl {
+            justify-content: space-between;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    .content {
+        text-align: center;
+
+        @include xl {
+            text-align: left;
+        }
+
+        .title-1 {
+            @include font-title-1;
+        }
+
+        .title-2 {
+            @include font-title-2;
+        }
+
+        .title-3 {
+            @include font-title-3;
+        }
+    }
+
+    img {
+        display: none;
+        max-height: 745px;
+        width: auto;
+
+        @include xl {
+            display: block;
+        }
+    }
+}
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    background-color: $color-transparent-light-1;
+
+    #logotype {
+        grid-area: logotype;
+        font-size: 35px;
+        font-weight: $font-weight-bold;
+        color: $color-dark-2;
+        text-decoration: none;
+    }
+
+    #menu {
+        grid-area: menu;
+
+        @include lg {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "menulinks menuicons";
+        }
+
+        .menu-links {
+            grid-area: menulinks;
+        }
+
+        .menu-icons {
+            grid-area: menuicons;
+            margin-top: 40px;
+
+
+            @include lg {
+                text-align: right;
+                margin-top: 0;
+            }
+        }
+    }
+
+    #toggle-icon {
+        grid-area: toggleicon;
+        display: flex;
+        justify-content: flex-end;
+
+        @include lg {
+            display: none;
+        }
+    }
+
+    .container {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "logotype toggleicon" "menu menu";
+
+        @include lg {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas: "logotype menu menu";
+        }
+    }
+
+    .links {
+        @include lg {
+            @include center-content;
+        }
+    }
+
+    .icons {
+        .link {
+            margin-left: 1rem;
+        }
+
+        @include center-content;
+
+        @include lg {
+            justify-content: flex-end;
+        }
+    }
+}
+.collection-grid {
+    .container {
+    }
+
+    .title {
+        font-size: 20px;
+        font-weight: $font-weight-bold;
+        @include center-content;
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+
+    .item-collection {
+        margin-bottom: 40px;
+        display: grid;
+        gap: 30px;
+        grid-template-columns: 1fr;
+
+        @include md {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include lg {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        @include xxl {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+
+        .item {
+            @include xl {
+                .image-section .menu {
+                    display: none;
+                }
+
+                &:hover {
+                    .image-section .menu {
+                        display: block;
+                    }
+                }
+            }
+
+            .image-section {
+                position: relative;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+
+                .menu {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+
+                    .icons {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+
+                        .link {
+                            margin: 15px;
+                            height: 50px;
+                            width: 50px;
+                            font-size: 1.4em;
+
+                            @include lg {
+                                height: 36px;
+                                width: 36px;
+                                font-size: 1em;
+                            }
+                        }
+                    }
+
+                    .btn-theme {
+                        position: absolute;
+                        width: 100%;
+                        bottom: 0;
+                    }
+                }
+            }
+
+            .body-section {
+                text-align: center;
+
+                .category {
+                    margin-top: 1rem;
+                    color: $color-dark-3;
+                    font-weight: $font-weight-medium;
+                }
+
+                .name {
+                    margin-top: 1rem;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                    color: $color-dark-2;
+                    font-weight: $font-weight-bold;
+                    font-size: 1.4em;
+                    min-height: 50px;
+
+                    @include lg {
+                        font-size: 1.2em;
+                        min-height: 60px;
+                    }
+                }
+
+                .star-rating {
+                    margin-top: 0.3rem;
+                    font-size: 1.5em;
+                }
+
+                .price {
+                    margin-top: 0.5rem;
+                    margin-bottom: 1rem;
+                    font-weight: $font-weight-medium;
+                    font-size: 1.3em;
+
+                    @include lg {
+                        font-size: 1.2em;
+                    }
+                }
+            }
+        }
+    }
+}
