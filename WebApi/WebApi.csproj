@@ -21,8 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="DB\" />
+    <Folder Include="Factories\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>
