@@ -487,3 +487,27 @@ header .icons .link {
     font-size: 1.2em;
   }
 }
+
+.collection-twocolumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.collection-twocolumns .bg-gray {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.collection-twocolumns .column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.collection-twocolumns .column .content {
+  text-align: center;
+}
+.collection-twocolumns .column .content h1 {
+  font-weight: 700;
+}
+.collection-twocolumns .column.item-collection {
+  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}

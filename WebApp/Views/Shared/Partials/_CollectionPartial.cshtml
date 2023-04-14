@@ -3,14 +3,10 @@
         <div class="title">Featured Products</div>
         <div class="item-collection">
             @*Här ska det vara 8st collection items*@
-            <CollectionItem />
-            <CollectionItem />
-            <CollectionItem />
-            <CollectionItem />
-            <CollectionItem />
-            <CollectionItem />
-            <CollectionItem />
-            <CollectionItem />
+            @for (int i = 0; i < 8; i++)
+            {
+                <partial name="~/Views/Shared/Partials/_CollectionItemPartial.cshtml" />
+            }
         </div>
     </div>
 </section>
