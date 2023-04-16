@@ -14,7 +14,7 @@ public class JwtToken
         _configuration = configuration;
     }
 
-    public string GenerateToken(ClaimsIdentity claimsIdentity,DateTime expiresAt,string key)
+    public string GenerateToken(ClaimsIdentity claimsIdentity,DateTime expiresAt)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
         var securityTokenDescriptor = new SecurityTokenDescriptor

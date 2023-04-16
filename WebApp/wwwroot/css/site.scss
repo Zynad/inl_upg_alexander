@@ -513,122 +513,11 @@ header {
         margin-bottom: 30px;
     }
 
-    .item-collection {
-        margin-bottom: 40px;
-        display: grid;
-        gap: 30px;
-        grid-template-columns: 1fr;
-
-        @include md {
-            grid-template-columns: 1fr 1fr;
-        }
-
-        @include lg {
-            grid-template-columns: 1fr 1fr 1fr;
-        }
-
-        @include xxl {
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-        }
-
-        .item {
-            @include xl {
-                .image-section .menu {
-                    display: none;
-                }
-
-                &:hover {
-                    .image-section .menu {
-                        display: block;
-                    }
-                }
-            }
-
-            .image-section {
-                position: relative;
-
-                img {
-                    width: 100%;
-                    height: auto;
-                }
-
-                .menu {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    height: 100%;
-                    width: 100%;
-
-                    .icons {
-                        position: absolute;
-                        right: 0;
-                        top: 0;
-
-                        .link {
-                            margin: 15px;
-                            height: 50px;
-                            width: 50px;
-                            font-size: 1.4em;
-
-                            @include lg {
-                                height: 36px;
-                                width: 36px;
-                                font-size: 1em;
-                            }
-                        }
-                    }
-
-                    .btn-theme {
-                        position: absolute;
-                        width: 100%;
-                        bottom: 0;
-                    }
-                }
-            }
-
-            .body-section {
-                text-align: center;
-
-                .category {
-                    margin-top: 1rem;
-                    color: $color-dark-3;
-                    font-weight: $font-weight-medium;
-                }
-
-                .name {
-                    margin-top: 1rem;
-                    margin-left: 10px;
-                    margin-right: 10px;
-                    color: $color-dark-2;
-                    font-weight: $font-weight-bold;
-                    font-size: 1.4em;
-                    min-height: 50px;
-
-                    @include lg {
-                        font-size: 1.2em;
-                        min-height: 60px;
-                    }
-                }
-
-                .star-rating {
-                    margin-top: 0.3rem;
-                    font-size: 1.5em;
-                }
-
-                .price {
-                    margin-top: 0.5rem;
-                    margin-bottom: 1rem;
-                    font-weight: $font-weight-medium;
-                    font-size: 1.3em;
-
-                    @include lg {
-                        font-size: 1.2em;
-                    }
-                }
-            }
-        }
-    }
 }
+.hide {
+    display: none;
+}
+
 .collection-twocolumns {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -636,6 +525,8 @@ header {
     .bg-gray {
         background-color: $color-shadow-1;
     }
+
+    
 
     .column {
         @include center-content;
@@ -654,4 +545,253 @@ header {
             grid-template-columns: 1fr 1fr 1fr;
         }
     }
+}
+.icon-information {
+    margin-bottom: 30px;
+    font-size: 1.6em;
+    width: 1.6em;
+    text-align: center;
+    line-height: 1.6em;
+    background: white;
+    color: black;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.information-link :hover {
+    cursor: pointer;
+    background: #B2B2B2;
+}
+footer {
+    background-color: $color-light-3;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    text-align: center;
+    height: 100px;
+    margin-top: 25px;
+}
+
+.footer-icon {
+    margin-left: 15px;
+    margin-bottom: 15px;
+    color: black;
+}
+
+.footer-icon-link {
+    opacity: 0.7;
+}
+
+
+.footer-icon-link:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+.item-collection {
+    margin-bottom: 40px;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr;
+
+    @include md {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @include lg {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @include xxl {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .item {
+        @include xl {
+            .image-section .menu {
+                display: none;
+            }
+
+            &:hover {
+                .image-section .menu {
+                    display: block;
+                }
+            }
+        }
+
+        .image-section {
+            position: relative;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+
+            .menu {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+
+                .icons {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+
+                    .link {
+                        margin: 15px;
+                        height: 50px;
+                        width: 50px;
+                        font-size: 1.4em;
+
+                        @include lg {
+                            height: 36px;
+                            width: 36px;
+                            font-size: 1em;
+                        }
+                    }
+                }
+
+                .btn-theme {
+                    position: absolute;
+                    width: 100%;
+                    bottom: 0;
+                }
+            }
+        }
+
+        .body-section {
+            text-align: center;
+
+            .category {
+                margin-top: 1rem;
+                color: $color-dark-3;
+                font-weight: $font-weight-medium;
+            }
+
+            .name {
+                margin-top: 1rem;
+                margin-left: 10px;
+                margin-right: 10px;
+                color: $color-dark-2;
+                font-weight: $font-weight-bold;
+                font-size: 1.4em;
+                min-height: 50px;
+
+                @include lg {
+                    font-size: 1.2em;
+                    min-height: 60px;
+                }
+            }
+
+            .star-rating {
+                margin-top: 0.3rem;
+                font-size: 1.5em;
+            }
+
+            .price {
+                margin-top: 0.5rem;
+                margin-bottom: 1rem;
+                font-weight: $font-weight-medium;
+                font-size: 1.3em;
+
+                @include lg {
+                    font-size: 1.2em;
+                }
+            }
+        }
+    }
+}
+.local-page-nav-items {
+    margin-bottom: 25px;
+}
+
+.home-page-link {
+    color: $color-dark-1;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.home-page-link:hover {
+    opacity: 1;
+}
+
+.current-page-text {
+    color: $color-theme;
+}
+
+
+.map-frame{
+    width: 100%;
+}
+.user-input-content {
+    margin-top: 100px;
+}
+.user-input-form {
+    margin-top: 100px;
+}
+
+
+.user-input-title {
+    text-align: center;
+    font-weight: bold;
+}
+
+.user-input-item {
+}
+
+.user-input {
+    width: 100%;
+    margin-top: 25px;
+    padding: 10px;
+}
+
+.input-comment {
+    margin-top: 25px;
+    padding-bottom: 80px;
+    width: 100%;
+}
+
+.input-button {
+    margin-top: 25px;
+    margin-bottom: 100px;
+    background-color: $color-theme;
+    color: $color-light-2;
+    padding: 10px 50px;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: inline-block;
+    transition: background-color 0.25s;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.input-button:hover {
+    opacity: 1;
+}
+
+
+.input-login-button {
+    margin-top: 25px;
+    background-color: $color-theme;
+    color: $color-light-2;
+    padding: 10px 50px;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: inline-block;
+    transition: background-color 0.25s;
+    text-align: center;
+    opacity: 0.8;
+    width: 100%;
+}
+
+.input-login-button:hover {
+    opacity: 1;
+}
+
+.user-button-content {
+    margin-bottom: 300px;
 }

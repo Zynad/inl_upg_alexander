@@ -15,7 +15,7 @@ public class UseApiKeyAttribute : Attribute, IAsyncActionFilter
             context.Result = new UnauthorizedResult();
             return;
         }
-        if (!apiKey.Equals(key))
+        if (!apiKey!.Equals(key))
         {
             context.Result = new UnauthorizedResult();
             return;

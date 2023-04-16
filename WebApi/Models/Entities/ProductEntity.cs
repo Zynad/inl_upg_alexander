@@ -1,4 +1,6 @@
-﻿namespace _02_EFC_CodeFirst.Models.Entities;
+﻿using WebApi.Models.Entities;
+
+namespace _02_EFC_CodeFirst.Models.Entities;
 
 public class ProductEntity
 {
@@ -9,4 +11,6 @@ public class ProductEntity
 
     public int CategoryId { get; set; }
     public CategoryEntity Category { get; set; } = null!;
+    public int ColorId { get; set; }
+    public ProductColorEntity Color { get; set; } = null!;
 }
