@@ -48,5 +48,3 @@ for (let input of inputs)
 
 
 
-console.log(inputs)
-console.log('testar')

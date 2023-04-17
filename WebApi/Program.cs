@@ -4,6 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using WebApi.Contexts;
+using WebApi.Helpers;
+using WebApi.Models.Identity;
+using WebApi.Repositories;
+using WebApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,13 +18,16 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("IdentityDB")));
 builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("DataDB")));
 
+builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<JwtToken>();
+builder.Services.AddScoped<UserProfileRepository>();
 
-
-builder.Services.AddDefaultIdentity<IdentityUser>(x =>
+builder.Services.AddIdentity<CustomIdentityUser, IdentityRole>(x =>
 {
-    x.User.RequireUniqueEmail = true;
     x.Password.RequiredLength = 8;
     x.SignIn.RequireConfirmedAccount = false;
+    x.User.RequireUniqueEmail = true;
+
 }).AddEntityFrameworkStores<IdentityContext>();
 
 builder.Services.AddAuthentication(x =>
@@ -56,10 +63,11 @@ builder.Services.AddAuthentication(x =>
 });
 
 var app = builder.Build();
-
+app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();

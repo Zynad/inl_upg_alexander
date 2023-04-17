@@ -1,12 +1,12 @@
 ﻿@model RegisterUserViewModel;
 @{
-    ViewBag.Title = "Register";
+    ViewData["Title"] = "Register";
 }
 <section class="user-input-content">
-    <partial name="~/Views/Shared/Partials/_LocalPageNavPartial.cshtml" />
+    <partial name="~/Views/Shared/Partials/_LocalPageNavPartial.cshtml" model="@ViewData["Title"]" />
 
     <div class="container">
-        <form class="user-input-form" asp-controller="Account" asp-action="Register" method="post" novalidate>
+        <form class="user-input-form" asp-controller="Register" asp-action="Index" method="post" novalidate>
 
             <h6 class="user-input-title">Register</h6>
 

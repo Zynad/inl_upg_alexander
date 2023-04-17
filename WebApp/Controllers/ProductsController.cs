@@ -8,5 +8,10 @@ namespace WebApp.Controllers
         {
             return View();
         }
+
+        public async Task<IActionResult> ProductDetails()
+        {
+            return View();
+        }
     }
 }

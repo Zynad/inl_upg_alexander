@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <Folder Include="DB\" />
-    <Folder Include="Factories\" />
   </ItemGroup>
 
 </Project>
