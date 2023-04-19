@@ -1,1 +1,11 @@
 ﻿Js är Taget från lektion 6
+
+<div class="user-input-item">
+    <select class="user-input" asp-for="PhoneNumber">
+        <option value="">-- Select Phone Number Type --</option>
+        <option value="home">Home</option>
+        <option value="work">Work</option>
+        <option value="mobile">Mobile</option>
+    </select>
+    <span asp-validation-for="PhoneNumber"></span>
+</div>

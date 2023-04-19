@@ -1,1 +1,93 @@
-﻿<div>Hej</div>
+﻿@model AdminViewModel;
+@{
+    ViewData["Title"] = "Admin";
+}
+<section class="user-input-content">
+    <partial name="~/Views/Shared/Partials/_LocalPageNavPartial.cshtml" model="@ViewData["Title"]" />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <form class="user-input-form" asp-controller="Register" asp-action="Index" method="post" novalidate>
+
+                    <h6 class="user-input-title">Add product</h6>
+
+                    <div class="user-input-item">
+                        <input class="user-input" asp-for="@Model.RegisterProduct.Title" placeholder="@Model.RegisterProduct.Title" />
+                        <span asp-validation-for="@Model.RegisterProduct.Title"></span>
+                    </div>
+
+                    <div class="user-input-item">
+                        <input class="user-input" asp-for="@Model.RegisterProduct.Description" placeholder="@Model.RegisterProduct.Description" />
+                        <span asp-validation-for="@Model.RegisterProduct.Description"></span>
+                    </div>
+
+                    <div class="user-input-item">
+                        <input class="user-input" asp-for="@Model.RegisterProduct.Price" placeholder="@Model.RegisterProduct.Price" />
+                        <span asp-validation-for="@Model.RegisterProduct.Price"></span>
+                    </div>
+                    <div class="user-input-item">
+                        <input class="user-input" asp-for="@Model.RegisterProduct.StarRating" placeholder="@Model.RegisterProduct.StarRating" />
+                        <span asp-validation-for="@Model.RegisterProduct.StarRating"></span>
+                    </div>
+
+                    <div class="user-input-item">
+                        <input class="user-input" asp-for="@Model.RegisterProduct.Category" placeholder="@Model.RegisterProduct.Category" />
+                        <span asp-validation-for="@Model.RegisterProduct.Category"></span>
+                    </div>
+
+                    <div class="user-input-item">
+                        <input class="user-input" asp-for="@Model.RegisterProduct.Tag" placeholder="@Model.RegisterProduct.Tag" />
+                        <span asp-validation-for="@Model.RegisterProduct.Tag"></span>
+                    </div>
+
+                    <div class="user-button-content">
+
+                        <button class="input-login-button" type="submit">Register</button>
+
+                    </div>
+                </form>
+            </div>
+            @*<div class="col-md-6">
+                <form class="user-input-form" asp-controller="Register" asp-action="Index" method="post" novalidate>
+
+                    <h6 class="user-input-title">Add showcase</h6>
+
+                    <div class="user-input-item">
+                        <input class="user-input" asp-for="FirstName" placeholder="Firstname" />
+                        <span asp-validation-for="FirstName"></span>
+                    </div>
+
+                    <div class="user-input-item">
+                        <input class="user-input" asp-for="LastName" placeholder="Lastname" />
+                        <span asp-validation-for="LastName"></span>
+                    </div>
+
+                    <div class="user-input-item">
+                        <input class="user-input" asp-for="Email" placeholder="Email" />
+                        <span asp-validation-for="Email"></span>
+                    </div>
+                    <div class="user-input-item">
+                        <input class="user-input" asp-for="PhoneNumber" placeholder="PhoneNo" />
+                        <span asp-validation-for="PhoneNumber"></span>
+                    </div>
+
+                    <div class="user-input-item">
+                        <input class="user-input" asp-for="Password" placeholder="Password" />
+                        <span asp-validation-for="Password"></span>
+                    </div>
+
+                    <div class="user-input-item">
+                        <input class="user-input" asp-for="ConfirmPassword" placeholder="Confirm Password" />
+                        <span asp-validation-for="ConfirmPassword"></span>
+                    </div>
+
+                    <div class="user-button-content">
+
+                        <button class="input-login-button" type="submit">Register</button>
+
+                    </div>
+                </form>
+            </div>*@
+        </div>
+    </div>
+</section>

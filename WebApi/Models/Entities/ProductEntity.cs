@@ -10,7 +10,7 @@ public class ProductEntity
     public string ImageUrl { get; set; } = null!;
     public string Tag { get; set; } = null!;
     public DateTime Created { get; set; }
-
-    public int CategoryId { get; set; }
-    public CategoryEntity Category { get; set; } = null!;
+    public string Category { get; set; } = null!;
+    public string Description { get; set; } = null!;
+    public int StarRating { get; set; } = 3;
 }

@@ -1,6 +1,6 @@
-﻿namespace WebApi.Models.Entities
+﻿namespace WebApi.Models.Entities;
+
+public class CommentEntity
 {
-    public class CommentEntity
-    {
-    }
+    public int id { get; set; }
 }
