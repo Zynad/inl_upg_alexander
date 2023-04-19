@@ -12,15 +12,15 @@ namespace WebApi.Services;
 
 public class AuthService
 {
-    private readonly UserProfileRepository _userProfileRepository;
+    private readonly UserProfileRepo _userProfileRepo;
     private readonly UserManager<CustomIdentityUser> _userManager;
     private readonly SignInManager<CustomIdentityUser> _signInManager;
     private readonly RoleManager<IdentityRole> _roleManager;
     private readonly JwtToken _jwt;
 
-    public AuthService(UserProfileRepository userProfileRepository, UserManager<CustomIdentityUser> userManager, SignInManager<CustomIdentityUser> signInManager, JwtToken jwt, RoleManager<IdentityRole> roleManager)
+    public AuthService(UserProfileRepo userProfileRepo, UserManager<CustomIdentityUser> userManager, SignInManager<CustomIdentityUser> signInManager, JwtToken jwt, RoleManager<IdentityRole> roleManager)
     {
-        _userProfileRepository = userProfileRepository;
+        _userProfileRepo = userProfileRepo;
         _userManager = userManager;
         _signInManager = signInManager;
         _jwt = jwt;
@@ -40,9 +40,9 @@ public class AuthService
             if (!await _userManager.Users.AnyAsync())
                 model.RoleName = "admin";
 
-            CustomIdentityUser user = model;
 
             var identityResult = await _userManager.CreateAsync(model, model.Password);
+
             if (identityResult.Succeeded)
             {
                 var identityUser = await _userManager.FindByEmailAsync(model.Email);
@@ -52,7 +52,7 @@ public class AuthService
                 {
                     UserProfileEntity userProfileEntity = model;
                     userProfileEntity.UserId = identityUser!.Id;
-                    await _userProfileRepository.AddAsync(userProfileEntity);
+                    await _userProfileRepo.AddAsync(userProfileEntity);
                     return true;
                 }
             }
@@ -70,10 +70,12 @@ public class AuthService
             var signInResult = await _signInManager.CheckPasswordSignInAsync(identityUser, model.Password, false);
             if (signInResult.Succeeded)
             {
+                var role = await _userManager.GetRolesAsync(identityUser);
                 var claimsIdentity = new ClaimsIdentity(new Claim[]
                 {
                     new Claim("id", identityUser.Id.ToString()),
-                    new Claim(ClaimTypes.Name, identityUser.Email!)
+                    new Claim(ClaimTypes.Name, identityUser.Email!),
+                    new Claim(ClaimTypes.Role, role[0])
                 });
 
                 return _jwt.GenerateToken(claimsIdentity, DateTime.Now.AddHours(1));

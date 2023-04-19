@@ -1,16 +1,23 @@
-﻿using WebApi.Models.Entities;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace _02_EFC_CodeFirst.Models.Entities;
+namespace WebApi.Models.Entities;
 
 public class ProductEntity
 {
+    [Key]
     public int Id { get; set; }
+    [MaxLength(50)]
     public string Title { get; set; } = null!;
-    public decimal Price { get; set; }
+    [Range(0,double.MaxValue)]
+    [DataType(DataType.Currency)]
+    public double Price { get; set; }
     public string ImageUrl { get; set; } = null!;
-    public string Tag { get; set; } = null!;
+    public int TagId { get; set; }
+    public TagEntity Tag { get; set; } = null!;
     public DateTime Created { get; set; }
-    public string Category { get; set; } = null!;
+    public int CategoryId { get; set; }
+    public CategoryEntity Category { get; set; } = null!;
     public string Description { get; set; } = null!;
-    public int StarRating { get; set; } = 3;
+    [Range(1,5)]
+    public int StarRating { get; set; }
 }

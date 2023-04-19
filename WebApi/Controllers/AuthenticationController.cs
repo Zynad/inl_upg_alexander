@@ -41,6 +41,6 @@ public class AuthenticationController : ControllerBase
                 return Ok(token);
         }
 
-        return Unauthorized("Incorrect email or password");
+        return BadRequest("Incorrect email or password");
     }
 }

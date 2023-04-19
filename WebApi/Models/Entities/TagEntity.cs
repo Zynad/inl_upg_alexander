@@ -2,11 +2,12 @@
 
 namespace WebApi.Models.Entities;
 
-public class CategoryEntity
+public class TagEntity
 {
     [Key]
     public int Id { get; set; }
-    [MaxLength(100)]
+
+    [MaxLength(30)]
     public string Name { get; set; } = null!;
 
     public IEnumerable<ProductEntity> Products { get; set; } = new List<ProductEntity>();

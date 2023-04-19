@@ -19,8 +19,17 @@ builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Confi
 builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("DataDB")));
 
 builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<JwtToken>();
-builder.Services.AddScoped<UserProfileRepository>();
+builder.Services.AddScoped<UserProfileRepo>();
+builder.Services.AddScoped<ProductRepo>();
+builder.Services.AddScoped<CommentRepo>();
+builder.Services.AddScoped<TagRepo>();
+builder.Services.AddScoped<CategoryRepo>();
+
+
+
+
 
 builder.Services.AddIdentity<CustomIdentityUser, IdentityRole>(x =>
 {

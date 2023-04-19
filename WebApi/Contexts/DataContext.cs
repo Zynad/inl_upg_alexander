@@ -1,5 +1,5 @@
-﻿using _02_EFC_CodeFirst.Models.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using WebApi.Models.Entities;
 
 namespace WebApi.Contexts;
 
@@ -10,4 +10,6 @@ public class DataContext : DbContext
     }
     public DbSet<ProductEntity> Products { get; set; }
     public DbSet<CategoryEntity> Categories { get; set; }
+    public DbSet<TagEntity> Tags { get; set; }
+    public DbSet<CommentEntity> Comments { get; set; }
 }
