@@ -1,4 +1,4 @@
-﻿using InlamningsUppgiftFixxo.ViewModels;
+﻿using WebApp.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApp.Controllers

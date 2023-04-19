@@ -1,44 +1,43 @@
-﻿using InlamningsUppgiftFixxo.ViewModels;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using WebApp.ViewModels;
 
-namespace WebApp.Controllers
+namespace WebApp.Controllers;
+
+public class LoginController : Controller
 {
-    public class LoginController : Controller
+    public IActionResult Index()
     {
-        public IActionResult Index()
+        return View();
+    }
+    [HttpPost]
+    public async Task<IActionResult> Index(LoginUserViewModel viewModel)
+    {
+        if (ModelState.IsValid)
         {
-            return View();
-        }
-        [HttpPost]
-        public async Task<IActionResult> Index(LoginUserViewModel viewModel)
-        {
-            if (ModelState.IsValid)
+            using var http = new HttpClient();
+
+            var result = await http.PostAsJsonAsync("https://localhost:7052/api/authentication/login", viewModel);
+            if (result.IsSuccessStatusCode)
             {
-                using var http = new HttpClient();
+                var token = await result.Content.ReadAsStringAsync();
 
-                var result = await http.PostAsJsonAsync("https://localhost:7052/api/authentication/login", viewModel);
-                if (result.IsSuccessStatusCode)
+                HttpContext.Response.Cookies.Append("accessToken", token, new CookieOptions
                 {
-                    var token = await result.Content.ReadAsStringAsync();
+                    HttpOnly = true,
+                    Secure = true,
+                    Expires = DateTime.Now.AddDays(1)
+                });
 
-                    HttpContext.Response.Cookies.Append("accessToken", token, new CookieOptions
-                    {
-                        HttpOnly = true,
-                        Secure = true,
-                        Expires = DateTime.Now.AddDays(1)
-                    });
-
-                    
-                    return RedirectToAction("Index", "Admin");
-                    
-                    
-                }
+                
+                return RedirectToAction("Index", "Admin");
+                
                 
             }
-
-            ModelState.AddModelError("", "Incorrect email or password");
-
-            return View(viewModel);
+            
         }
+
+        ModelState.AddModelError("", "Incorrect email or password");
+
+        return View(viewModel);
     }
 }
