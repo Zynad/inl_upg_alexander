@@ -26,9 +26,8 @@ builder.Services.AddScoped<ProductRepo>();
 builder.Services.AddScoped<CommentRepo>();
 builder.Services.AddScoped<TagRepo>();
 builder.Services.AddScoped<CategoryRepo>();
-
-
-
+builder.Services.AddScoped<ShowCaseRepo>();
+builder.Services.AddScoped<ShowCaseService>();
 
 
 builder.Services.AddIdentity<CustomIdentityUser, IdentityRole>(x =>
@@ -72,11 +71,10 @@ builder.Services.AddAuthentication(x =>
 });
 
 var app = builder.Build();
-app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseHttpsRedirection();
-app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();

@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.Filters;
 using WebApi.Models.DTO;
 using WebApi.Services;
 
 namespace WebApi.Controllers;
-
+[UseApiKey]
 [Route("api/[controller]")]
 [ApiController]
 public class AuthenticationController : ControllerBase
