@@ -20,4 +20,6 @@ public class ProductEntity
     public string Description { get; set; } = null!;
     [Range(1,5)]
     public int StarRating { get; set; }
+    public string SKU { get; set; } = null!;
+    public string Brand { get; set; } = null!;
 }

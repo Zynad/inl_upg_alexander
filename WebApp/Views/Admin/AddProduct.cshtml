@@ -1,0 +1,97 @@
+﻿@model RegisterProductViewModel;
+@{
+    ViewData["Title"] = "Register Product";
+}
+<section class="user-input-content">
+    <partial name="~/Views/Shared/Partials/_LocalPageNavPartial.cshtml" model="@ViewData["Title"]" />
+    <div class="container">
+        <div class="row">
+            <div class="d-flex justify-content-center">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <h2 class="text-info">@Model?.ConfirmationMessage</h2>
+
+            </div>
+            <div class="col-md-6">
+                <form class="user-input-form" asp-controller="Admin" asp-action="AddProduct" method="post" novalidate>
+
+                    <h6 class="user-input-title">Add product</h6>
+
+                    
+                    <div class="user-input-item">
+                        <label asp-for="Title" class="form-label"></label>
+                        <input class="form-control" asp-for="Title" />
+                        <span asp-validation-for="Title"></span>
+                    </div>
+                    <div class="user-input-item">
+                        <label asp-for="Price" class="form-label"></label>
+                        <input class="form-control" asp-for="Price" />
+                        <span asp-validation-for="Price"></span>
+                    </div>
+                    <div class="user-input-item">
+                        <label asp-for="ImageUrl" class="form-label"></label>
+                        <input class="form-control" asp-for="ImageUrl" />
+                        <span asp-validation-for="ImageUrl"></span>
+                    </div>
+                    <div class="user-input-item">
+                        <label asp-for="Tag" class="form-label"></label>
+                        <select asp-for="Tag" class="form-control">
+                            <option></option>
+                            <option value="Featured">Featured</option>
+                            <option value="New">New</option>
+                            <option value="Popular">Popular</option>
+                        </select>
+                        <span asp-validation-for="Tag"></span>
+                    </div>
+                    <label asp-for="Category" class="form-label"></label>
+                    <select asp-for="Category" class="form-control">
+                        <option></option>
+                        <option value="Coats">Coats</option>
+                        <option value="Dresses">Dresses</option>
+                        <option value="Pants">Pants</option>
+                        <option value="Shirts">Shirts</option>
+                        <option value="Shoes">Shoes</option>
+                        <option value="Underwear">Underwear</option>
+                        <option value="Accessories">Accessories</option>
+                        <option value="Sweatshirts">Sweatshirts</option>
+                    </select>
+                    <span asp-validation-for="Category"></span>
+                    <div class="user-input-item">
+                        <label asp-for="Description" class="form-label"></label>
+                        <input class="form-control" asp-for="Description" />
+                        <span asp-validation-for="Description"></span>
+                    </div>
+                    <div class="user-input-item">
+                        <label asp-for="StarRating" class="form-label"></label>
+                        <select asp-for="StarRating" class="form-control">
+                            <option></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <span asp-validation-for="StarRating"></span>
+                    </div>
+                    <div class="user-input-item">
+                        <label asp-for="SKU" class="form-label"></label>
+                        <input class="form-control" asp-for="SKU" />
+                        <span asp-validation-for="SKU"></span>
+                    </div>
+                    <div class="user-input-item">
+                        <label asp-for="Brand" class="form-label"></label>
+                        <input class="form-control" asp-for="Brand" />
+                        <span asp-validation-for="Brand"></span>
+                    </div>
+
+                    
+
+                    <div class="user-button-content">
+
+                        <button class="input-login-button" type="submit">Register Product</button>
+
+                    </div>
+                </form>
+            </div>           
+        </div>
+    </div>
+</section>

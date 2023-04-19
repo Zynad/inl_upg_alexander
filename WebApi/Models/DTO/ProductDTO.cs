@@ -12,6 +12,9 @@ public class ProductDTO
     public string Category { get; set; } = null!;
     public string Description { get; set; } = null!;
     public int StarRating { get; set; }
+    public string SKU { get; set; } = null!;
+    public string Brand { get; set; } = null!;
+    public DateTime Created { get; set; }
 
     public static implicit operator ProductDTO(ProductEntity entity)
     {
@@ -25,6 +28,9 @@ public class ProductDTO
             Category = entity.Category.Name,
             Description = entity.Description,
             StarRating = entity.StarRating,
+            SKU = entity.SKU,
+            Brand = entity.Brand,
+            Created = entity.Created,
         };
     }
 }

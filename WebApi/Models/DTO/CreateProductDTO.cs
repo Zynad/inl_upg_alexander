@@ -4,7 +4,6 @@ namespace WebApi.Models.DTO;
 
 public class CreateProductDTO
 {
-    public int Id { get; set; }
     public string Title { get; set; } = null!;
     public double Price { get; set; }
     public string ImageUrl { get; set; } = null!;
@@ -12,6 +11,8 @@ public class CreateProductDTO
     public string Category { get; set; } = null!;
     public string Description { get; set; } = null!;
     public int StarRating { get; set; }
+    public string SKU { get; set; } = null!;
+    public string Brand { get; set; } = null!;
 
     public static implicit operator ProductEntity(CreateProductDTO dto)
     {
@@ -22,6 +23,8 @@ public class CreateProductDTO
             ImageUrl = dto.ImageUrl,
             Description = dto.Description,
             StarRating = dto.StarRating,
+            SKU = dto.SKU,
+            Brand = dto.Brand,
         };
     }
 }
