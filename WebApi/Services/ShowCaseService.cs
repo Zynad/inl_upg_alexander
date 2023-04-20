@@ -31,4 +31,18 @@ public class ShowCaseService
         ShowCaseDTO dto = latestShowCase!;
         return dto;
     }
+
+    public async Task<IEnumerable<ShowCaseDTO>> GetAllShowCasesAsync()
+    {
+        var dtoList = new List<ShowCaseDTO>();
+
+        var showCases = await _showCaseRepo.GetAllAsync();
+
+        foreach (var showCase in showCases)
+        {
+            ShowCaseDTO dto = showCase;
+            dtoList.Add(dto);
+        }
+        return dtoList;
+    }
 }

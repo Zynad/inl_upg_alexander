@@ -1,10 +1,11 @@
-﻿@{
+﻿@model HomeViewModel
+@{
     ViewData["Title"] = "Home";
 }
 
-<partial name="~/Views/Shared/Partials/_ShowcasePartial.cshtml" />
-<partial name="~/Views/Shared/Partials/_CollectionPartial.cshtml" />
+<partial name="~/Views/Shared/Partials/_ShowcasePartial.cshtml" model="Model.ShowCase"/>
+<partial name="~/Views/Shared/Partials/_CollectionPartial.cshtml" model="Model.Featured"/>
 <partial name="~/Views/Shared/Partials/_SpecialOffersPartial.cshtml" />
-<partial name="~/Views/Shared/Partials/_NewProductsPartial.cshtml" />
-<partial name="~/Views/Shared/Partials/_PopularProductsPartial.cshtml" />
+<partial name="~/Views/Shared/Partials/_NewProductsPartial.cshtml" model="Model.New"/>
+<partial name="~/Views/Shared/Partials/_PopularProductsPartial.cshtml" model="Model.Popular"/>
 <partial name="~/Views/Shared/Partials/_InformationPartial.cshtml" />

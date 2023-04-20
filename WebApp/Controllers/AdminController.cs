@@ -8,7 +8,7 @@ using WebApp.Services;
 using WebApp.ViewModels;
 
 namespace WebApp.Controllers;
-//[Authorize]
+
 public class AdminController : Controller
 {
     private readonly TokenValidation _tokenValidation;
@@ -114,6 +114,17 @@ public class AdminController : Controller
 
 		return RedirectToAction("UnauthorizedUser", "Home");
 	}
+    public IActionResult DeleteProduct()
+    {
+        string token = HttpContext.Request.Cookies["accessToken"]!;
+
+        if (_tokenValidation.ValidateToken(token))
+        {
+            return View();
+        }
+
+        return RedirectToAction("UnauthorizedUser", "Home");
+    }
 
 
 }

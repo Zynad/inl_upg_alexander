@@ -35,7 +35,6 @@ public class ProductService
     public async Task<IEnumerable<ProductDTO>> GetByTagAsync(string tag)
     {
         var products = await _productRepo.GetListAsync(x => x.Tag.Name == tag);
-        products = products.OrderByDescending(x => x.Created).Take(8);
 
         var dto = new List<ProductDTO>();
 

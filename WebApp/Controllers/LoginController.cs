@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApp.Helpers;
 using WebApp.ViewModels;
 
 namespace WebApp.Controllers;
@@ -6,14 +7,23 @@ namespace WebApp.Controllers;
 public class LoginController : Controller
 {
     private readonly IConfiguration _config;
+    private readonly TokenValidation _tokenValidation;
 
-    public LoginController(IConfiguration config)
+    public LoginController(IConfiguration config, TokenValidation tokenValidation)
     {
         _config = config;
+        _tokenValidation = tokenValidation;
     }
 
     public IActionResult Index()
     {
+        string token = HttpContext.Request.Cookies["accessToken"]!;
+
+        if (_tokenValidation.ValidateToken(token))
+        {
+            return RedirectToAction("Index", "Admin");
+        }
+        
         return View();
     }
     [HttpPost]

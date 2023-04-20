@@ -11,6 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<TokenValidation>();
 builder.Services.AddScoped<AdminService>();
+builder.Services.AddScoped<ViewService>();
+builder.Services.AddScoped<ProductService>();
 
 
 var app = builder.Build();

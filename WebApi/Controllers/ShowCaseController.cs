@@ -41,5 +41,11 @@ namespace WebApi.Controllers
         {
             return Ok(await _ShowCaseService.GetLatestShowCaseAsync());
         }
+        [Route("All")]
+        [HttpGet]
+        public async Task<IActionResult> GetAllShowcases()
+        {
+            return Ok(await _ShowCaseService.GetAllShowCasesAsync());
+        }
     }
 }

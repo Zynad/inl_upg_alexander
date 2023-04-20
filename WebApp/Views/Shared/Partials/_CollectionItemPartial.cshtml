@@ -1,19 +1,23 @@
-﻿<div class="item">
+﻿@model ProductDTO;
+<div class="item">
     <div class="image-section">
-        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSHhby10NdsGvHLiAUx6s9sUw4ZoUDGZIvG30bZW-CVkO-VbHv9UiDuGrJo-FrLzlVrj_1kHmJ_XtSrS0OzSUPOce6s8iQpakjh5m8ZvhD9Q7DufbwiqtFdcw&usqp=CAE" alt="" />
+        <img src="@Model.ImageUrl" alt="@Model.Title" />
         <div class="menu">
             <div class="icons">
                 <button class="link"><i class="fa-regular fa-code-compare"></i></button>
                 <button class="link"><i class="fa-regular fa-heart"></i></button>
                 <button class="link"><i class="fa-regular fa-bag-shopping"></i></button>
             </div>
-            <a class="btn-theme" asp-controller="Products" asp-action="ProductDetails">QUICK VIEW</a>
+            <a class="btn-theme" asp-controller="Products" asp-action="ProductDetails" asp-route-id="@Model.Id">QUICK VIEW</a>
         </div>
     </div>
     <div class="body-section">
-        <div class="category">Coats</div>
-        <div class="name">Black Coat of the Best Brandc And Design</div>
-        <partial name="~/Views/Shared/Partials/_StarRatingPartial.cshtml" model="2" />
-        <div class="price">$3500</div>
+        <div class="category">@Model.Category</div>
+        <div class="name">@Model.Title</div>
+        <partial name="~/Views/Shared/Partials/_StarRatingPartial.cshtml" model="@Model.StarRating" />
+        <div class="price">@Model.Price kr</div>
     </div>
 </div>
+
+
+                

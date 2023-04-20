@@ -1,11 +1,11 @@
-﻿<section class="collection-grid">
+﻿@model IEnumerable<ProductDTO>
+<section class="collection-grid">
     <div class="container">
         <div class="title">Featured Products</div>
         <div class="item-collection">
-            @*Här ska det vara 8st collection items*@
-            @for (int i = 0; i < 8; i++)
+            @foreach (var item in Model)
             {
-                <partial name="~/Views/Shared/Partials/_CollectionItemPartial.cshtml" />
+                <partial name="~/Views/Shared/Partials/_CollectionItemPartial.cshtml" model="item"/>
             }
         </div>
     </div>
