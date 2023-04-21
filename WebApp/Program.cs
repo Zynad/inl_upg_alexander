@@ -13,6 +13,7 @@ builder.Services.AddScoped<TokenValidation>();
 builder.Services.AddScoped<AdminService>();
 builder.Services.AddScoped<ViewService>();
 builder.Services.AddScoped<ProductService>();
+builder.Services.AddScoped<CommentService>();
 
 
 var app = builder.Build();

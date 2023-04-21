@@ -1,11 +1,12 @@
-﻿<section class="showcase">
+﻿@model ShowCaseDTO
+<section class="showcase">
         <div class="container">
             <div class="content">
-                <div class="title-2">GET UP TO 40% OFF</div>
-                <div class="title-1">Don't Miss This Opportunity</div>
-                <div class="title-3">Online shopping free home delivery over $100</div>
-                <a class="btn-theme" asp-controller="Home" asp-action="Index">SHOP NOW</a>
+                <div class="title-2">@Model.Title</div>
+                <div class="title-1">@Model.Ingress</div>
+                <div class="title-3">@Model.DeliveryText</div>
+                <a class="btn-theme" asp-controller="Home" asp-action="Index">@Model.ButtonText</a>
             </div>
-            <img src="~/images/showcase-img.png" alt="" />
+            <img src="@Model.ImageUrl" alt="Picture not found" />
         </div>
     </section>

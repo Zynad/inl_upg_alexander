@@ -8,4 +8,5 @@ public class TagRepo : DataRepo<TagEntity>
     public TagRepo(DataContext dataContext) : base(dataContext)
     {
     }
+    
 }

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using WebApp.Models.DTO;
 
 namespace WebApp.ViewModels;
 
@@ -11,4 +12,15 @@ public class ContactsViewModel
     public string Email { get; set; } = null!;
     [Required(ErrorMessage = "You can't send an empy comment")]
     public string Comment { get; set; } = null!;
+    public string ConfirmationMessage { get; set; } = "";
+
+    public static implicit operator CommentDTO(ContactsViewModel viewModel)
+    {
+        return new CommentDTO
+        {
+            CustomerName = viewModel.Name,
+            CustomerEmail = viewModel.Email,
+            Comment = viewModel.Comment,
+        };
+    }
 }

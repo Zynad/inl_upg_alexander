@@ -1,5 +1,42 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@inject ProductService productService
+@model DeleteProductViewModel
 @{
+    ViewData["Title"] = "Delete Product";
+    var products = await productService.GetAllProductsAsync();
 }
+<section class="user-input-content">
+    <partial name="~/Views/Shared/Partials/_LocalPageNavPartial.cshtml" model="@ViewData["Title"]" />
+    <div class="container">
+        <div class="row">
+            <div class="d-flex justify-content-center">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <h2 class="text-info">@Model?.ConfirmationMessage</h2>
+
+            </div>
+            <div class="col-md-6">
+                <form class="user-input-form" asp-controller="admin" asp-action="DeleteProduct" method="post" novalidate>
+
+                    <h6 class="user-input-title">Delete Product</h6>
+
+                    <div class="user-input-item">
+                        <label asp-for="@Model.Id" class="form-label"></label>
+                        <select asp-for="@Model.Id" class="form-control">
+                            <option></option>
+                            @foreach (var product in products)
+                            {
+                                <option value="@product.Id">@product.Title</option>
+                            }                           
+                        </select>
+                        <span asp-validation-for="@Model.Id"></span>
+                    </div>
+                    
+                    <div class="user-button-content">
+
+                        <button class="input-login-button" type="submit">Delete Product</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
